@@ -1,0 +1,35 @@
+{
+  "name": "nodejs-testcase-best-practice",
+  "version": "1.0.0",
+  "description": "nodejs testcase bast-practice",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js",
+    "test": "ava -s test",
+    "cover": "nyc ava -s test report --reporter=html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huangyingxian/nodejs-testcase-best-practice.git"
+  },
+  "keywords": [
+    "testcase",
+    "nodejs"
+  ],
+  "author": "492753097@qq.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huangyingxian/nodejs-testcase-best-practice/issues"
+  },
+  "homepage": "https://github.com/huangyingxian/nodejs-testcase-best-practice#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "ava": "^3.15.0",
+    "nyc": "^15.1.0",
+    "sinon": "^11.1.2",
+    "supertest": "^6.1.4"
+  }
+}
