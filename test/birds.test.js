@@ -15,7 +15,7 @@ function testOK (f, description, methods, returnParams, data, okMsg) {
   tester.testCase(f, description, methods, returnParams, data, okMsg)
 }
 
-const findByPrimary = sinon.stub(Birds.prototype, 'findByPrimary')
+const findByPrimary = sinon.stub(Birds.prototype, 'findByName')
 
 const returnresult = {
   uuid: '7ef1625b-0010-46e2-ac3a-b4d52ea7a3b4',
@@ -35,7 +35,7 @@ const rerror = { msg: 'invalid param' }
 
 // 1、测试根据uuid获得轮播图详情,缺失uuid
 testOK(
-  BirdsServer.findByPrimary,
+  BirdsServer.getOneBird,
   'findByPrimary is lack for uuid',
   [],
   [],
@@ -45,7 +45,7 @@ testOK(
 
 // 测试根据uuid获得轮播图详情,正常查看轮播图详情
 testOK(
-  BirdsServer.findByPrimary,
+  BirdsServer.getOneBird,
   'findByPrimary is  ok',
   [findByPrimary],
   [returnresult],

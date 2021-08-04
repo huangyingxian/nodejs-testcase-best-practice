@@ -1,5 +1,7 @@
 class BirdsServer {
-  static async findByPrimary () {}
+  static async getOneBird (obj) {
+
+  }
 }
 
 module.exports = BirdsServer

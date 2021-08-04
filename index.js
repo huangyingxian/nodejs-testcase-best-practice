@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { getApp } = require('./init')
 const { createServer } = require('http')
 
