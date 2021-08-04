@@ -1,9 +1,9 @@
 require('dotenv').config()
-const { getApp } = require('./init')
+const { init } = require('./init')
 const { createServer } = require('http')
 
 async function main () {
-  const app = await getApp()
+  const app = await init()
   const port = parseInt(process.env.PORT) || 3000
 
   createServer(app).listen(port, err => {

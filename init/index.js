@@ -9,10 +9,6 @@ const DBWrap = require('../lib/dbwrap')
 // get app instand
 async function getApp () {
   const app = express()
-
-  await initExpress(app)
-  DBWrap.initDB()
-
   return app
 }
 
@@ -28,7 +24,15 @@ async function initExpress (app) {
   app.use('/person', person)
 }
 
-async function init () {}
+// application init
+async function init () {
+  const app = await getApp()
+
+  await initExpress(app)
+  DBWrap.initDB()
+
+  return app
+}
 
 exports.getApp = getApp
 
