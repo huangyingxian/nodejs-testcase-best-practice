@@ -10,9 +10,11 @@ const BirdsServer = require('../server/birds-server')
 
 // define the home page route
 router.get('/', async function (req, res) {
-  await BirdsServer.getOneBird()
-  res.send('Birds home page')
+  const { name } = Object.assign({}, req.query, req.params)
+  const bird = await BirdsServer.getOneBird({ name })
+  res.json({ code: 0, data: bird })
 })
+
 // define the about route
 router.get('/about', function (req, res) {
   res.send('About birds')

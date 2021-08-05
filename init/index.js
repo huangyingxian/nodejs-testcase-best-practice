@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
@@ -19,6 +20,9 @@ async function initExpress (app) {
 
   // log middleware
   app.use(middleware.timeLog)
+
+  // errHandle
+  app.use(middleware.errorHandle)
 
   app.use('/birds', birds)
   app.use('/person', person)

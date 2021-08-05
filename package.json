@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "ava -s test",
+    "testbirds": "ava -s test/birds.test.js",
     "cover": "nyc ava -s test report --reporter=html"
   },
   "repository": {

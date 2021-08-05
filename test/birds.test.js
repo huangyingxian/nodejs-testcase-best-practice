@@ -15,40 +15,29 @@ function testOK (f, description, methods, returnParams, data, okMsg) {
   tester.testCase(f, description, methods, returnParams, data, okMsg)
 }
 
-const findByPrimary = sinon.stub(Birds.prototype, 'findByName')
+const findByName = sinon.stub(Birds.prototype, 'findByName')
 
 const returnresult = {
-  uuid: '7ef1625b-0010-46e2-ac3a-b4d52ea7a3b4',
-  pic: 'https://www.hao123.com/?tn=91280157_s_hao_pg',
-  url: 'https://www.hao123.com/?tn=91280157_s_hao_pg',
-  gooduuid: '51221818-5a30-4113-8998-a658b9e8c183',
-  state: 'on',
-  content: '这是我的内容',
-  description: '这是我的描述',
-  position: 1,
-  linktype: 'outer',
-  created: '2017-06-27T09:25:31.624Z',
-  modified: '2017-06-27T09:25:31.624Z'
+  name: 'Parrot',
+  age: 1.5
 }
 
-const rerror = { msg: 'invalid param' }
-
-// 1、测试根据uuid获得轮播图详情,缺失uuid
+// 1. 测试未找到指定的鸟
 testOK(
   BirdsServer.getOneBird,
-  'findByPrimary is lack for uuid',
-  [],
-  [],
+  'Birds-server -> [getOneBird] findByName is not exist',
+  [findByName],
+  [undefined],
   {},
-  rerror
+  'not found'
 )
 
-// 测试根据uuid获得轮播图详情,正常查看轮播图详情
+// 2. 测试根据name获得指定的鸟
 testOK(
   BirdsServer.getOneBird,
-  'findByPrimary is  ok',
-  [findByPrimary],
+  'Birds-server -> [getOneBird] findByName is OK',
+  [findByName],
   [returnresult],
-  { uuid: '7ef1625b-0010-46e2-ac3a-b4d52ea7a3b4' },
-  { bannerDatil: returnresult }
+  {},
+  returnresult
 )
