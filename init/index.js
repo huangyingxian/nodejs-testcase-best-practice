@@ -2,10 +2,9 @@ require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const birds = require('../router/birds')
-const person = require('../router/person')
 const middleware = require('../lib/middleware')
 const DBWrap = require('../lib/dbwrap')
+const routerHelper = require('../lib/routerhelper')
 
 // get app instand
 async function getApp () {
@@ -23,9 +22,6 @@ async function initExpress (app) {
 
   // errHandle
   app.use(middleware.errorHandle)
-
-  app.use('/birds', birds)
-  app.use('/person', person)
 }
 
 // application init
@@ -33,6 +29,8 @@ async function init () {
   const app = await getApp()
 
   await initExpress(app)
+  await routerHelper.routerRegister(app)
+
   DBWrap.initDB()
 
   return app
