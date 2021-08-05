@@ -19,9 +19,6 @@ async function initExpress (app) {
 
   // log middleware
   app.use(middleware.timeLog)
-
-  // errHandle
-  app.use(middleware.errorHandle)
 }
 
 // application init
@@ -29,7 +26,10 @@ async function init () {
   const app = await getApp()
 
   await initExpress(app)
+
   await routerHelper.routerRegister(app)
+  // errHandle
+  app.use(middleware.errorHandle)
 
   DBWrap.initDB()
 
