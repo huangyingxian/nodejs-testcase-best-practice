@@ -1,5 +1,5 @@
-const sinon = require('sinon')
 const test = require('ava')
+const sinon = require('sinon')
 const { init } = require('../init')
 
 const Birds = require('../model/birds')
