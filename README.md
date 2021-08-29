@@ -1,5 +1,7 @@
 
-@[toc]
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
 
 # nodejs-testcase-best-practice
 nodejs 测试用例最佳实现的服务 
