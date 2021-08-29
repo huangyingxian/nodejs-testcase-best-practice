@@ -28,6 +28,10 @@ async function init () {
   await initExpress(app)
 
   await routerHelper.routerRegister(app)
+
+  // notRouteHandle
+  app.use(middleware.notRouterHandle)
+
   // errHandle
   app.use(middleware.errorHandle)
 
